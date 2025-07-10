@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(controle_monit_mov controle_monit_mov.c )
+add_executable(controle_monit_mov controle_monit_mov.c inc/ssd1306_i2c.c)
 
 pico_set_program_name(controle_monit_mov "controle_monit_mov")
 pico_set_program_version(controle_monit_mov "0.1")
@@ -56,6 +56,8 @@ target_include_directories(controle_monit_mov PRIVATE
 # Add any user requested libraries
 target_link_libraries(controle_monit_mov 
         hardware_i2c
+        hardware_pwm
+        hardware_adc
         )
 
 pico_add_extra_outputs(controle_monit_mov)
