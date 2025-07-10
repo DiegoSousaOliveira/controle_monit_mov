@@ -123,6 +123,15 @@ int main() {
         float servo_angle = pitch + 90;
         set_servo_angle(servo_angle);
 
+        // --- Saída no monitor serial (organizada)
+        printf("\n-----------------------------\n");
+        printf(" Pitch: %8.2f graus\n", pitch);
+        printf(" Roll : %8.2f graus\n", roll);
+        printf(" Servo: %8.2f graus\n", servo_angle);
+        if (fabs(pitch) > 45.0f) {
+            printf(" >>> ALERTA: inclinacao excessiva! <<<\n");
+        }
+
         // --- Atualiza display OLED
         char linha1[32], linha2[32], linha3[32];
         char *linhas[3] = {linha1, linha2, linha3};
